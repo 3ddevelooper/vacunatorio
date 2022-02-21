@@ -7,7 +7,7 @@
 Pagina simil turnero, en donde los usuarios solicitan un turno y un administrador asigna una fecha a ese turno.
 
 <h1>Tencologías usudas</h1>
--Java
+-Java<br>
 -Spring Boot
 -Thymeleaf
 -JPA/Hibernate
