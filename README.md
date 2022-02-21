@@ -5,7 +5,6 @@
 </div>
 
 Pagina simil turnero, en donde los usuarios solicitan un turno y un administrador asigna una fecha a ese turno.
-
 <h1>Tencologías usudas</h1>
 -Java<br>
 -Spring Boot<br>
@@ -19,5 +18,5 @@ Pagina simil turnero, en donde los usuarios solicitan un turno y un administrado
 -Bootstrap<br>
 <hr>
 ---Datos de acceso---
-User: admin
-Pass: admin@1234
+<br>User: admin
+<br>Pass: admin@1234
