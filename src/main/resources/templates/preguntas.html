@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<br>
+<div class="container">
+    <div class="titelconsulcontainer">
+		<h2 class="text-black display-4 titlepregunta">Preguntas más frecuentes</h2>
+		<a class="btn btn-primary volverpregunta" th:href="@{/}"><i class="fas fa-caret-square-left"></i> Volver</a>
+	</div>
+<div class="accordion accordion-flush cards" id="accordionPreguntas">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta1" aria-expanded="false" aria-controls="repuesta1">
+        1. ¿Qué tipos de vacunas contra la COVID-19 están autorizadas para su uso de emergencia en nuestro país?
+      </button>
+    </h2> 
+    <div id="repuesta1" class="accordion-collapse collapse" aria-labelledby="pregunta1" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         <div>Desde el comienzo de la pandemia de COVID-19 y dada la situación de emergencia sanitaria provocada por el nuevo coronavirus SARS-CoV-2, la Administración Nacional de Medicamentos, Alimentos y Tecnología Médica (ANMAT) 
+              trabaja de manera continua en el proceso de análisis de datos y de registro de vacunas para SARS-CoV-2 para su uso de emergencia en Argentina en caso que cuentan con evidencia 
+              científica que respaldan su seguridad y eficacia. Actualmente se encuentran autorizadas para su uso de emergencia las siguientes vacunas:
+         </div><br>
+         <div>La vacuna CoviShield, de la firma AstraZeneca S.A (origen del desarrollo británico). 
+              Se basa en un vector viral no replicativo (utiliza adenovirus de chimpancé).Disposición 9271/20, ANMAT.
+         </div><br>
+         <div>La vacuna de la firma Pfizer (origen estadounidense). 
+              Se basa en una plataforma de ácidos nucleicos (ARN mensajero). Disposición 9210/20 ANMAT.
+         </div><br>
+         <div>La vacuna Sputnik V del Instituto Gamaleya (origen ruso). 
+              Se basa en una plataforma de vector viral no replicativo (utiliza 2 adenovirus humanos: 26 y 5). 
+              Resolución Ministerial 2020-2784-APN-MS, de conformidad con las recomendaciones de la ANMAT.
+         </div><br>
+          <div>La vacunas Sinopharm (de origen chino). Se basa en una plataforma de virus inactivado. 
+               Resolución Ministerial 688/2021 del Ministerio de Salud de la Nación, 
+               en conformidad con las recomendaciones de la ANMAT.
+          </div> 
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta2" aria-expanded="false" aria-controls="repuesta2">
+       2. ¿Qué vacunas contra COVID-19 están disponibles en nuestro país?
+      </button>
+    </h2>
+    <div id="repuesta2" class="accordion-collapse collapse" aria-labelledby="pregunta2" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+        Actualmente se encuentran disponibles para su aplicación en los grupos priorizados, las siguientes vacunas: Sputnik V, CoviShield(AstraZeneca) y Sinopharm.
+       </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta3" aria-expanded="false" aria-controls="repuesta3">
+        3. ¿Cuales son la fase de desarrollo de una vacuna ?
+      </button>
+    </h2>
+    <div id="repuesta3" class="accordion-collapse collapse" aria-labelledby="pregunta3" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         <div>
+            Los diferentes estudios de investigación tienen como prioridad la seguridad de uso de una vacuna y en seguida su eficacia. Los estudios son realizados en fases: fase preclínica y fases I, II, III, y IV.
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Fase preclínica: Resultados experimentales sobre la eficacia y tolerancia en modelo animal apoyan su posterior investigación en humanos.
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Fase I: Usualmente se prueba una nueva vacuna en etapa experimental en un pequeño número de humanos, en general menos de 100 adultos con el objetivo de evaluar inicialmente su seguridad y sus efectos biológicos, incluida la inmunogenicidad. Esta fase puede incluir estudios de dosis y vías de administración.
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Fase II: Evalúa una vacuna que fue considerada segura en la Fase I y que necesita un grupo más grande de humanos (generalmente entre 200 y 500) para monitorear seguridad y también los ensayos que determinan la eficacia de la vacuna. Las metas de las pruebas de fase II son estudiar la vacuna candidata en cuanto a su seguridad, capacidad inmunogénica, dosis propuestas, y método de administración.
+         </div>
+         <div>
+           <span class="fs-1 ms-5 fw-bold">.</span> Fase III: Tiene como objetivo evaluar de forma más completa la seguridad y la eficacia en la prevención de las enfermedades e involucran una mayor cantidad de voluntarios que participan en un estudio multicéntrico adecuadamente controlado. Pueden incluir cientos a miles de humanos en un país o varios países. Las pruebas de fase III son aleatorias y doble ciego, e involucran la vacuna experimental que se prueba contra un placebo (el placebo puede ser una solución salina, una vacuna para otra enfermedad o alguna otra sustancia). En general es el paso anterior a la aprobación de una vacuna.
+         </div>
+         <div>
+           <span class="fs-1 ms-5 fw-bold">.</span> Fase IV: Son los estudios que ocurren después de la aprobación de una vacuna en uno o varios países. Estos estudios tienen como objetivo evaluar como la vacuna funciona en el “mundo real”. En general son los estudios de efectividad y también siguen monitoreando los eventos adversos.
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta4">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta4" aria-expanded="false" aria-controls="repuesta4">
+        4. ¿Qué significa una Autorización de uso de Emergencia de una vacuna?
+      </button>
+    </h2>
+    <div id="repuesta4" class="accordion-collapse collapse" aria-labelledby="pregunta4" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         <div>
+            Una autorización de uso en emergencia (AUE) tiene como objetivo que haya disponibles para la población medicamentos, vacunas y pruebas diagnósticas lo antes posible para hacer frente a una emergencia, cumpliendo al mismo tiempo estrictos criterios de seguridad, eficacia y calidad. En la evaluación se sopesa el riesgo a la enfermedad y a los casos severos y el beneficio que se derivaría del uso del producto. La autorización de uso en emergencia requiere contar datos que aseguren la calidad y consistencia del producto junto con los datos de al menos un ensayo clínico de Fase 3 que demuestra la seguridad y eficacia de una vacuna de una manera clara y convincente.
+         </div><br>
+         <div>
+            En el caso de que se emita un AUE para un producto, este continuará bajo investigación adicional.
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta5">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta5" aria-expanded="false" aria-controls="repuesta5">
+        5. ¿Cuál es el objetivo de la campaña de vacunación contra la COVID-19 en Argentina?
+      </button>
+    </h2>
+    <div id="repuesta5" class="accordion-collapse collapse" aria-labelledby="pregunta5" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         <div>
+            El propósito de vacunar contra la COVID-19 es cuidar a la población disminuyendo la morbi-mortalidad causada por la enfermedad. En esta primera etapa la vacunación está dirigida a los grupos de mayor riesgo y/o exposición al virus.
+         </div><br>
+         <div>
+            El impacto de la vacunación en la circulación viral y la interrupción de la transmisión aún se encuentra en estudio.
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta6">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta6" aria-expanded="false" aria-controls="repuesta6">
+        6. ¿La vacunación contra la COVID-19 es obligatoria?
+      </button>
+    </h2>
+    <div id="repuesta6" class="accordion-collapse collapse" aria-labelledby="pregunta6" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+        No, la vacunación es voluntaria en todos los casos y gratuita.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta7">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta7" aria-expanded="false" aria-controls="repuesta7">
+        7. ¿Cómo se aplica la vacuna COVID-19?
+      </button>
+    </h2>
+    <div id="repuesta7" class="accordion-collapse collapse" aria-labelledby="pregunta7" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+        Las vacunas actualmente disponibles se administran mediante una inyección en el músculo de la parte superior del brazo y requiere de 2 (dos) dosis, con un intervalo mínimo entre 21 a 56 días entre cada dosis dependiendo de cada vacuna.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta8">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta8" aria-expanded="false" aria-controls="repuesta8">
+        8. ¿Se requerirá orden médica para recibir la vacuna COVID-19?
+      </button>
+    </h2>
+    <div id="repuesta8" class="accordion-collapse collapse" aria-labelledby="pregunta8" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         No. En el caso de los mayores de 60 años se acreditará mediante el DNI, y en el caso de las personas pertenecientes a alguno de los grupos de riesgo acreditarán su condición mediante un certificado médico o una declaración jurada.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta9">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta9" aria-expanded="false" aria-controls="repuesta9">
+        9. Si me vacuno ¿debo continuar con las medidas de prevención (barbijo, lavado de manos, distancia social, etc.)?
+      </button>
+    </h2>
+    <div id="repuesta9" class="accordion-collapse collapse" aria-labelledby="pregunta9" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+         Sí. Mientras los expertos obtienen más información acerca de la protección que brindan las vacunas contra la COVID-19 y su duración, es importante que sigamos adoptando todos los cuidados para detener esta pandemia, como usar barbijo, mascarilla o tapa boca que cubra boca y nariz, lavarse las manos con frecuencia y mantener una distancia de al menos 2 metros de los demás.
+      </div>
+    </div>
+  </div>
+  <br>
+ <div class="accordion-item">
+    <h2 class="accordion-header" id="pregunta10">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#repuesta10" aria-expanded="false" aria-controls="repuesta10">
+        10. ¿Qué personas no pueden recibir la vacuna contra COVID-19?
+      </button>
+    </h2>
+    <div id="repuesta10" class="accordion-collapse collapse" aria-labelledby="pregunta10" data-bs-parent="#accordionPreguntas">
+      <div class="accordion-body">
+        <div>
+            No se recomienda su aplicación en los siguientes grupos.
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Hipersensibilidad a cualquier componente de la vacuna contra COVID-19.
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Antecedente de reacciones alérgicas graves "anafilaxia" (con compromiso respiratorio que requiera asistencia médica).
+         </div>
+         <div>
+            <span class="fs-1 ms-5 fw-bold">.</span> Antecedente de complicaciones graves posvacunación (shock anafiláctico, reacciones alérgicas generalizadas y graves, síndrome convulsivo, fiebre superior a 40° C, etc.) por la inyección del Componente 1 de la vacuna.
+         </div>
+         <div>
+           <span class="fs-1 ms-5 fw-bold">.</span> Enfermedades agudas graves (infecciosas y no infecciosas) o exacerbación de enfermedades crónicas, que impliquen compromiso del estado general.
+         </div>
+         <div>
+           <span class="fs-1 ms-5 fw-bold">.</span> Menores de 18 años (debido a la falta de datos sobre eficacia y seguridad en este grupo etario).
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+</div>
+    <br>
+    <th:block th:replace="layout/layout :: js"></th:block>
+	<footer th:replace="layout/layout :: footer"></footer>    
+</body>
+</html>

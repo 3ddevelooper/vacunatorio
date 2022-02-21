@@ -1,0 +1,17 @@
+package com.developer.covidpractica.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/preguntas")
+public class PreguntaController {
+
+    @GetMapping
+    public String preguntas(Model model) {
+        model.addAttribute("title", "Preguntas Frecuentes");
+        return "preguntas";
+    }
+}

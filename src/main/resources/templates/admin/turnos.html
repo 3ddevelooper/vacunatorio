@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutadmin :: head"></head>
+
+<body>
+<header th:replace="layout/layoutadmin :: header"></header>
+<div class="fragmentcontainer">
+	<div class="contentfitros">
+		<div class="estados">
+		  <form  th:action="@{/admin/turnos}" th:method="GET" >
+			<label class="form-label estadolabel"><span>Estado</span></label>
+			<select class="form-control selecturno" aria-label="Default select example"
+				id="estado" name="estado" onchange="this.form.submit()">
+				<option selected value="TODOS">Todos</option>
+				<option  value="PENDIENTE">Pendiente</option>
+				<option  value="PERDIDO">Perdido</option>
+				<option  value="BAJA">Baja</option>
+				<option  value="ASIGNADO">Asignado</option>	
+			</select>
+		  </form>
+		</div>
+		
+		<!--<form th:action="@{/admin/fechas}" method="get">
+		  <div class="d-flex">
+		     <label class="form-label fecha"><span>Fecha</span></label>
+		     <input class="form-control inpudate" 
+		        type="date" id="fechabuscar"
+		        onchange="this.form.submit()"
+		        th:name="fechabuscar" 
+		        placeholder="Selecione la fecha" 
+		        aria-label="Fecha">
+		  </div>
+		</form>-->
+		
+		<form  th:action="@{/admin/busqueda}" method="get">
+		   <div class="buscador">
+		      <input class="form-control inpubuscar" 
+		       id="dnibuscar" 
+		       th:name="dnibuscar"
+		       type="text"
+		       aria-label="Buscar"
+		       onkeypress="return soloNumeros(event)" 
+		       onInput="validarInput()"
+		       autocomplete=off
+		       minlength=6
+		       maxlength=8
+		       size="10"
+		       placeholder="Buscar por DNI">
+			  <button class="btn btn-primary btnbuscar" id="btnbuscar" type="submit"><i class="icon ion-md-search"></i></button>
+		   </div>
+		</form>
+	</div>
+	
+	<div class="container contenedortabla"> 
+		<div class="table-responsive-lg tablas">
+			<table class="bg-primary table-bordered table-hover tabla">
+				<thead>
+					<tr class="text-center text-white">
+						<th scope="col">DNI</th>
+						<th scope="col">NOMBRES</th>
+						<th scope="col">APELLIDOS</th>
+						<th scope="col">FECHA TURNO</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col" colspan="3">ACCIÓN</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="turno:${turnos}">
+						<td th:text="${turno.dni}"></td>
+						<td th:text="${turno.nombres}"></td>
+						<td th:text="${turno.apellidos}"></td>
+						<td th:text="${turno.fechaTurno}"></td>
+						<td th:text="${turno.estadoTurno}"></td>
+						<td class="text-center"><a type="button" class="btn btn-outline-warning btn-sm" th:if="${#strings.toString(turno.estadoTurno)} != 'ASIGNADO'" th:href="@{/admin/asignar-turno/} + ${turno.dni}"><i class="icon ion-md-add"></i></a></td>
+						<td class="text-center"><button type="button" class="btn btn-outline-danger btn-sm" th:onclick="inactivarTurno([[${turno.dni}]])"><i class="icon ion-md-trash"></i></button></td>
+						<td class="text-center"><button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" th:attr="data-target='#exampleModal'+*{turno.dni}"><i class="icon ion-md-eye"></i></button></td>
+						<!-- Modal Consulta-->
+						<div class="modal fade" th:id="*{'exampleModal'+{turno.dni}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-scrollable">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Detalles del turno</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<div class="mb-3">
+											<h2 class="textlabel">Dni</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.dni}"></small></p>
+											<hr>
+											<h2 class="textlabel">Nombres</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.nombres}"></small></p>
+											<hr>
+											<h2 class="textlabel">Apellidos</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.apellidos}"></small></p>
+											<hr>
+											<h2 class="textlabel">Estado del turno</h2>                                                          
+											<p class="text-warning"><small class="text-success"  th:text="${turno.estadoTurno}" 
+											   th:class="${(#strings.contains(turno.estadoTurno,'ASIGNADO') ? 'text-success' : '') + 
+											   (#strings.contains(turno.estadoTurno,'BAJA') ? 'text-danger' : '') + 
+											   (#strings.contains(turno.estadoTurno,'PERDIDO') ? 'text-danger' : '') + 
+											   (#strings.contains(turno.estadoTurno,'PENDIENTE') ? 'text-warning' : '')}"></small>
+											</p>
+											<hr>
+											<h2 class="textlabel">Fecha vacunación</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.fechaTurno} ?: 'NO HAY FECHA'"></small></p>
+											<hr>
+											<h2 class="textlabel">Teléfono</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.telefono}"></small></p>
+											<hr>
+											<h2 class="textlabel">Email</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.email}"></small></p>
+											<hr>
+											<h2 class="textlabel">Dirección</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.direccion}"></small></p>
+											<hr>
+											<h2 class="textlabel">Vacuna</h2>
+											<p class="card-text"><small class="text-dark" th:text="${turno.vacuna.nombre}"></small></p>
+											<hr>
+											
+										</div>
+									</div>
+									
+									<div class="modal-footer d-block">
+									   <form >
+									    <input type="hidden" id="dni" name="dni">
+									    <div class="fechamodalcontainer" >
+									       <div class="d-flex justify-content-end">
+									          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+									       </div>
+									    </div> 
+									   </form> 
+									</div>
+								</div>
+							</div>
+						</div>
+					  </div>
+						<!--Fin Modal Consulta-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="row btn-pagination">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<nav aria-label="Pagination">
+			<ul class="pagination">
+			    <li class="page-item" th:classappend="${prev == 0} ? 'disabled' : ''">
+			        <a class="page-link"th:href="@{|/admin/turnos/?page=${prev}&estado=${estado}|}"><span aria-hidden="true">&laquo;</span></a>
+			    </li>
+				<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page} ? 'active' : ''">
+					<a class="page-link" th:href="@{|/admin/turnos/?page=${page}&estado=${estado}|}" th:text="${page}"></a>
+				</li>
+				<li class="page-item" th:classappend="${current == last} ? 'disabled' : ''">
+			        <a class="page-link"th:href="@{|/admin/turnos/?page=${next}&estado=${estado}|}"><span aria-hidden="true">&raquo;</span></a>
+			    </li>
+			</ul>
+		</nav>
+	</div>
+</div>
+	<br>
+	<th:block th:replace="layout/layoutadmin :: js"></th:block>
+	<script src="/js/inputselected.js"></script>
+	
+</body>
+</html>

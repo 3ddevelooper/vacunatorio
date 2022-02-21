@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutadmin :: head"></head>
+<body>
+	<header th:replace="layout/layoutadmin :: header"></header>
+	<div class="fragmentcontainer">
+		<a class="btn btn-outline-primary agregar" th:href="@{/admin/registro}">
+			<i class="icon ion-md-add"></i> Agregar Vacuna</a>
+		<div class="container mt-5">
+			<div class="table-responsive-lg">
+				<table class=" bg-primary table-bordered table-hover tabla">
+					<thead>
+						<tr  class="text-center text-white">
+							<th scope="col">NOMBRE</th>
+							<th scope="col">DESCRIPCIÓN</th>
+							<th scope="col">NÚMERO DE DOSIS</th>
+							<th scope="col">DÍAS ENTRE DOSIS</th>
+							<th scope="col" colspan="2">ACCIÓN</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="vacuna:${vacunas}">
+							<td th:text="${vacuna.nombre}"></td>
+							<td th:text="${vacuna.descripcion}"></td>
+							<td th:text="${vacuna.numeroDosis}"></td>
+							<td th:text="${vacuna.diaEntreDosis}"></td>
+							<td class="text-center">
+							    <a class="btn btn-outline-warning btn-sm"
+									th:href="@{/admin/editar/} + ${vacuna.id}">
+									<i class="icon ion-md-create"></i>
+								</a>
+							</td>
+							<td class="text-center">
+							    <button class="btn btn-outline-danger btn-sm"
+									th:onclick="bajaVacuna([[${vacuna.id}]])">
+									<i class="icon ion-md-trash"></i> 
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+   
+<div class="row btn-pagination">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<nav aria-label="Pagination">
+			<ul class="pagination">
+				<li class="page-item" th:classappend="${prev == 0} ? 'disabled' : ''">
+					<a class="page-link" th:href="@{|/admin/vacunas/?page=${prev}|}"><span
+							aria-hidden="true">&laquo;</span></a>
+				</li>
+				<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page} ? 'active' : ''">
+					<a class="page-link" th:href="@{|/admin/vacunas/?page=${page}|}" th:text="${page}"></a>
+				</li>
+				<li class="page-item" th:classappend="${current == last} ? 'disabled' : ''">
+					<a class="page-link" th:href="@{|/admin/vacunas/?page=${next}|}"><span
+							aria-hidden="true">&raquo;</span></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+	<br>
+	<th:block th:replace="layout/layoutadmin :: js"></th:block>
+</body>
+</html>

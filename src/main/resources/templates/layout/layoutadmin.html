@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
+
+<head  th:fragment = "head">
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--SweetAlert y JQuery-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	
+	
+    <!--Fuente-->  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="/css/adstyle.css">
+    
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+    
+    <!-- Ionic icons -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    
+    <!-- Icono y Titulo de la pagina-->
+    <link rel="icon"  href="/img/favicon.png">
+    <title th:text = "${title}"></title>
+</head>
+<th:block th:fragment="js">
+	<script src="/js/alert.js"></script>
+	<script src="/js/limitinput.js"></script>
+	<script src="/js/asignar.js"></script>
+	<script src="/js/limitefecha.js"></script>
+	<script src="/js/inputbuscar.js"></script>
+</th:block>
+<body>
+	<header th:fragment = "header">
+
+		<div class="d-flex fixed-left" id="content-wrapper">
+			<!-- Sidebar -->
+			<div id="sidebar-container" class="bg-primary">
+				<div class="logo">
+					<img src="/img/logoba.png">
+				</div>
+				<div class="menu mt-3">
+					<a th:href="@{/admin/turnos}" class="d-block border-0"><i class="icon ion-md-calendar lead mr-2 icono"></i>
+						Turnos</a>
+
+					<a th:href="@{/admin/vacunas}" class="d-block  border-0"><i class="icon ion-md-color-filter lead mr-2"></i>
+						Vacunas</a>
+
+					<a th:href="@{/}" class="d-block  border-0"><i class="icon ion-md-globe lead mr-2"></i>
+						Ver Página</a>
+				</div>
+				
+				<div class="logoargentina fixed-bottom">
+					<img class="mb-3" src="/img/logoarg.svg">
+				</div>
+			 </div>
+			<!-- Fin sidebar -->
+
+			<div class="fluid w-100">
+			     <!--navegacion resposiva-->
+			    <div class="menusmall container d-flex justify-content-around  d-none d-md-block d-none d-lg-block d-none d-xl-none d-none d-xl-none">
+					<a th:href="@{/admin/turnos}" class="d-block border-0"><i class="icon ion-md-calendar lead mr-2 icono"></i>
+						Turnos</a>
+				
+					<a th:href="@{/admin/vacunas}" class="d-block  border-0"><i class="icon ion-md-color-filter lead mr-2"></i>
+						Vacunas</a>
+				
+					<a th:href="@{/}" class="d-block  border-0"><i class="icon ion-md-globe lead mr-2"></i>
+						Ver Página</a>
+				</div><br>
+				<!-- Navbar -->
+				<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom  barra">
+					<div class="container">
+						
+                       <!-- VISTA USUARIO PC--> 
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<h1 class="text-dark text-center tite d-none d-sm-block" th:text="${title}"></h1>
+							
+							<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+								<li class="nav-item dropdown">
+									<a class="nav-link text-dark dropdown-toggle name" id="navbarDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<img src="/img/user-1.png" class="img-fluid rounded-circle avatar mr-2"
+											alt="https://generated.photos/" />[[${#httpServletRequest.remoteUser}]]
+									</a>
+									<div class="dropdown-menu dropdown-menu-right text-primary" aria-labelledby="navbarDropdown">
+										<form th:action="@{/logout}" method="post">
+											<button type="submit" class="dropdown-item">Cerrar Sesión</button>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+						<!--VISTA USUARIO MOVIL-->
+						<div>
+							<ul class="navbar-nav ml-auto  mt-lg-0 usuario">
+								<li class="nav-item dropdown">
+									<a class="nav-link text-dark dropdown-toggle name" id="navbarDropdown2" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<img src="/img/user-1.png" class="img-fluid rounded-circle avatar mr-2"
+											alt="https://generated.photos/" />[[${#httpServletRequest.remoteUser}]]
+									</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown2">
+										<form th:action="@{/logout}" method="post">
+											<button type="submit" class="dropdown-item">Cerrar Sesión</button>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+				   </div>
+				</nav>
+				<!-- Fin Navbar -->
+			</div>
+		</div>
+	</header>
+
+	<!--<footer th:fragment="footer" id="footercontainer" class="text-center text-white bg-dark fixed-bottom">
+		
+		<div class="pt-2   content">
+			<img class="logofooter mt-2 d-flex justify-content-start" src="/img/balogo.png">
+			<div class="m-3 ">
+				<h6 class="text-white teluti">Teléfonos Útiles</h6>
+				<a class="text-white todostel" href="https://www.buenosaires.gob.ar/laciudad/telefonosutiles">Ver todos
+					los teléfonos</a>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class=" text-white tel" href="tel:102">102</a>
+				<h6 class="text-muted textdeta">Niñez y Adolescencia</h6>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class="text-white tel" href="tel:103">103</a>
+				<h6 class="text-muted textdeta">Emergencias</h6>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class="text-white tel" href="tel:107">107</a>
+				<h6 class="text-muted textdeta">SAME</h6>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class="text-white tel" href="tel:911">911</a>
+				<h6 class="text-muted textdeta">Policia</h6>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class="text-white tel" href="tel:147">147</a>
+				<h6 class="text-muted textdeta">Atención ciudadana</h6>
+			</div>
+			<div class="content m-2 d-none d-sm-block">
+				<a class="text-white tel" href="tel:911">144</a>
+				<h6 class="text-muted textdeta">Violencia de género</h6>
+			</div>
+		</div>
+		
+
+		
+		<div class="container-fluid text-center text-white p-3">
+			© 2021 Corina Dias - Alejandro Fernández - Damián Dries
+			<a class="copi text-uppercase font-weight-bold" href="https://damiandries.com.ar/" target="-blank">Damián
+			Dries</a>
+			| Todos los derechos reservados.
+		</div>
+		 
+	</footer>-->
+</body>
+
+</html>

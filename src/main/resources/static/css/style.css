@@ -1,0 +1,565 @@
+
+:root {
+    --primary: #111B54;
+    --light: #ffffff;
+    --grey: #efefef;
+    --dark: black;
+    --gray:  gray;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+.text-primary{color: var(--primary) !important; }
+
+.btn-primary{
+	color: var(--light) !important; 
+	border-color: var(--primary); 
+	background-color:var(--primary);
+	height: 40px;
+	margin: 15px 0px 0px 30px;
+}
+
+ 
+.btn-outline-primary{color: var(--primary) !important; border-color: var(--primary);}
+.btn-outline-primary:hover{color: var(--light) !important; border-color: var(--primary) ; background-color: var(--primary);}
+
+.bg-primary { background-color: var(--primary) !important; }
+
+.bg-light { background-color: var(--light) !important; }
+
+.bg-grey { background-color: var(--grey) !important; }
+
+.bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
+
+.alert{
+	margin-top:100px;
+}
+
+.swal-button--success, .swal-button--succes{
+	background-color: var(--success);
+	font-size: 0.8rem;
+	border: none;
+}
+.swal-button--success:not([disabled]):hover, .swal-button--succes:not([disabled]):hover{
+	background-color: #116b41;
+	border:none;
+}
+
+.swal-button--cancel{
+	background-color: var(--danger);
+	color: var(--light);
+	font-size: 0.8rem;
+	border: none;
+}
+.swal-button--cancel:not([disabled]):hover{
+	background-color: #db1e2e;
+	border:none;
+}
+.swal-button--cancel:focus{
+	box-shadow: none;
+}
+.swal-button:focus{
+	box-shadow: none;
+}
+.swal-title{
+	font-size: 1.2rem;
+}
+.swal-text{
+	font-size: 0.8rem;
+	font-weight: bolder;
+	color: var(--danger);
+}
+.swal-text:first-child{
+	font-size: 1rem;
+	color: var(--success);
+	font-weight: bolder;
+}
+
+.titlelogin{
+	margin: 5px 0px 10px 80px;
+	font-size: 3rem;
+	font-weight: 300;
+}
+.volverlogin{
+	margin: 20px 0px 0px 20px;
+}
+.titlepregunta{
+	margin: 10px 0px 20px -50px;
+}
+.volverpregunta{
+	margin: 25px 0px 0px 20px;
+}
+.botonescontainer{
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+.body{
+	background-image: linear-gradient(to right top, #397bcd, #009fcb, #5fb9bb, #a8ceba, #dde1d4);
+}
+.cuerpo{
+	margin-top: 80px;
+	height: 600px;
+}
+
+.titelconsulcontainer{
+	display:flex;
+	margin: 0px 0px 0px 210px;
+}
+#carouselExampleCaptions{
+	width: 100%;
+}
+
+.slide{
+	width: 100%;
+	margin-top: -9px;
+}
+
+.carousel-item{
+	background: var(--dark);
+	width: 100%;
+	/*margin-left: 15px;*/
+	/*border-radius: 15px 15px 15px 15px;*/
+}
+
+.carousel-item img{
+	opacity: 60%;
+	width: 100%;
+	height: 100vh;
+	/*border-radius: 15px 15px 15px 15px;*/
+}
+
+.titleslider{
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+#formGroupExampleInput::placeholder,
+#formGroupExampleInput2::placeholder,
+#formGroupExampleInput3::placeholder,
+#formGroupExampleInput4::placeholder,
+#formGroupExampleInput5::placeholder,
+#formGroupExampleInput6::placeholder,
+#formGroupExampleInput7::placeholder {
+	color: var(--light);
+		
+}
+
+.tite{
+	opacity: 97%;
+	font-size: 1.5rem;
+}
+
+.telutil{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.todostel{
+	font-size: 0.9rem;
+}
+.tel{
+	font-size: 1rem;
+}
+.textdeta{
+	font-size: 0.9rem;
+	margin-top: 15px;
+}
+.textredes{
+	
+	font-size: 1.5rem;
+	
+}
+.obli{
+	
+	font-size: 0.8rem;
+}
+.logo{
+	width: 280px;
+	height: 60px;
+	padding: 5px;
+}
+
+.container-fluid{
+	margin-top: -8px;
+}
+small{
+	font-size: 1.2rem;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.luego{
+	font-size: 0.8rem;
+}
+.modal-content{
+	border-radius: 10px 10px;
+}
+.textlabel{
+	font-size: 1rem;
+}
+.consulcontainer{
+	margin: 0px 0px 0px -150px;
+}
+.consulcontainerdos{
+	margin: 0px 0px 0px -140px;
+}
+.consulcontainertres{
+	margin: 0px 0px 0px -170px;
+}
+.consultite{
+	margin: 0px 0px 0px 170px;
+}
+.consultitedos{
+	margin: 0px 0px 0px 170px;
+}
+
+.consultitetres{
+	margin: 0px 0px 0px 240px;
+}
+
+.datosconsul{
+	margin: 0px 0px 0px 200px;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.datosconsulcontainer{
+	margin: 0px 0px 0px -150px;
+}
+.datosconsulcontainerdos{
+	margin: 0px 0px 0px -150px;
+}
+.datosconsuldos{
+	margin: 0px 0px 0px 210px;
+	text-transform: lowercase;
+}
+.datosconsulcontainertres{
+	margin: 0px 0px 0px -80px;
+}
+.datosconsultres{
+	margin: 0px 0px 0px 170px;
+	text-transform: lowercase;
+}
+
+
+.cards{
+    width: 90%;
+    margin: 0px 0px 0px 60px;
+    box-shadow: 5px 5px 15px var(--primary);
+    border-radius: 10px 10px;
+}
+
+.card{
+	width: 18rem;
+	height: 10rem;
+	margin-left:10px; 
+	margin-bottom: 10px;
+	border: 1px solid var(--gray);
+	border-left-color: var(--primary);
+	border-left-width: 10px;
+	border-radius: 10px 10px;
+	box-shadow: 5px 5px 15px var(--gray);
+	
+}
+.uno{
+	border-left-color: var(--info);
+}
+.dos{
+	border-left-color: var(--success);
+}
+.tres{
+	border-left-color: var(--danger);
+}
+.cuatro{
+	border-left-color: var(--gray);
+}
+
+.card-subtitle{
+	font-weight: bold;
+}
+.card-link:hover{
+	font-weight: bold;
+}
+
+.card-title{
+	margin-top: -10px;
+	font-size: 3rem;
+}
+.logofooter{
+	width: 110px;
+	height: 70px;
+	
+}
+.icons{
+	transition: 0.5s ease;
+}
+.icons:hover{
+	font-size: 1.6rem;
+	color: var(--gray);
+}
+
+.btn-close{
+	filter: invert(1);   
+}
+
+.accordion-flush .accordion-button{
+	border-radius: 10px 10px 10px 10px;
+}
+
+.accordion-flush .accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.accordion-button:not(.collapsed)::after{
+	filter: brightness(0.5);
+}
+.accordion-button:not(.collapsed){
+	background-color:none;
+	color: var(--primary);
+	font-weight: 500;
+}
+.accordion-button:focus{
+	border-color: var(--light);
+	box-shadow: none;
+}
+.accordion-button:not(.collapsed){
+	background-color: var(--light);
+	border-color: var(--grey);
+}
+
+
+.cardcontainer{
+	width: 300px;
+	height: 350px;
+	margin: 0px 0px 0px 10px;
+	position: relative;
+	perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.carta{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    border-left: rgba(255, 255, 255, 0.342) 1px solid;
+    border-top: rgba(255, 255, 255, 0.342) 1px solid;
+    border-radius: 10px 10px;
+    backdrop-filter: blur(30px);
+    color: var(--light);
+    backface-visibility: hidden;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	transition: 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.front{
+	color: var(--light);
+	transform: rotateY(0deg);
+}
+
+.back{
+	color: var(--light);
+	transform: rotateY(180deg);
+}
+.cardcontainer:hover > .front{
+	transform: rotateY(-180deg);
+}
+
+.cardcontainer:hover > .back{
+	transform: rotateY(0deg);
+}
+.btncarta{
+	border: 1px solid var(--light);
+    background: rgba(255, 255, 255, 0.21);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--light);
+    transition: all 0.7s;
+}
+
+.btncarta:hover{
+	padding: 10px 35px;
+    background: var(--light);
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.iconcard{
+	font-size: 120px;
+}
+.textcard{
+	font-size: 2rem;
+}
+.parracard{
+	font-size: 1.5rem;
+	padding: 10px;
+	margin: 80px 0px 50px 0px;
+	text-shadow: 0px 5px 5px var(--dark);
+}
+.copidami{
+	text-decoration: none;
+	color: var(--light);
+}
+.copidami:hover{
+	color: var(--light);
+	text-decoration: underline;
+	
+}
+
+.animado{
+	opacity: 0;
+	transition: all 0.5s;
+}
+.mostrarDerecha{
+	animation: mostrarDerecha 1s;
+}
+
+@keyframes mostrarDerecha{
+	0%{
+		transform: translateX(60px);
+	}
+	
+	100%{
+		transform: translateX(0);
+	}
+}
+
+@media (max-width: 440px){
+	.btncontent{
+		margin: 5px 0px 10px 100px;
+	}
+	.formsolicitud{
+		margin-left: 20px;
+	}
+	.btngene{
+       font-size: 0.8rem;
+    }
+	
+	.titlelogin{
+		font-size: 1.5rem;
+		font-weight: normal;
+	    margin: 0px 0px 0px 0px;
+    }
+    
+    .volverlogin{
+	    width: 130px;
+	    height: 40px;
+	    margin: 10px 0px 40px 0px;
+    }
+    
+    .titlepregunta{
+	    margin: 0px 0px 0px 0px;
+    }
+    
+    .volverpregunta{
+	    margin: 10px 0px 20px 0px;
+    }
+	.botonescontainer{
+	   display: block;
+	   text-align: center;
+    }
+	.cardcontainer{
+	   margin: 0px 0px 0px 10px;
+    }
+    .titelconsulcontainer{
+	   display: block;
+	   text-align: center;
+	   margin: 0 auto;
+    }
+    .titelconsulcontainer .volver{
+	   width: 40%;
+	   margin: 0px 0px 10px 0px;
+	 
+    }
+    .titleresultado{
+	   margin-top: -10px;
+    }
+    .slide{
+	  
+	  margin-top: 90px;
+    }
+    .carousel-item{
+	   background: var(--dark);
+	   width: 95%;
+	   margin-left: 10px;
+	   border-radius: 15px 15px 15px 15px;
+    }
+    .carousel-item img{
+	   height: 180px;
+    }
+    .cards{
+      width: 100%;
+      margin: 0px 0px 0px 0px;
+    }
+    .consulcontainer{
+	   margin: 0px 0px 0px -15px;
+    }
+    
+    .consulcontainerdos{
+	   margin: 0px 0px 0px -10px;
+    }
+    
+    .consulcontainertres{
+	   margin: 0px 0px 0px -50px;
+    }
+    
+    .consultite{
+ 	   margin: 0px 0px 0px 20px;
+ 	   font-size: 1.2rem;
+    }
+    .consultitedos{
+ 	   margin: 0px 0px 0px 15px;
+ 	   font-size: 0.9rem;
+    }
+
+    .consultitetres{
+	  margin: 0px 0px 0px 55px;
+	  font-size: 0.9rem;
+    }
+
+    .datosconsul{
+	  margin: 0px 0px 0px 30px;
+	  font-size: 0.9rem;
+	  font-weight: bold;
+    }
+
+    .datosconsulcontainer{
+	  margin: 0px 0px 0px -10px;
+    }
+    
+    .datosconsulcontainerdos{
+	  margin: 0px 0px 0px -30px;
+    } 
+   
+    .datosconsuldos{
+	 margin: 0px 0px 0px 30px;
+	 text-transform: lowercase;
+	 font-size: 0.8rem;
+    }
+
+    .datosconsulcontainertres{
+	 margin: 0px 0px 0px -10px;
+    }
+    
+    .datosconsultres{
+	 margin: 0px 0px 0px 15px;
+	 text-transform: lowercase;
+	 font-size: 0.7rem;
+    }
+    
+    .alert{
+	 margin-top:125px;
+    }
+}
+
+

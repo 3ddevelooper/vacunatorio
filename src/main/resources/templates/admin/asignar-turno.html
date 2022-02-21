@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutadmin :: head"></head>
+<header th:replace="layout/layoutadmin :: header"></header>
+<body>
+
+<div class="fragmentcontainer">
+	
+		<form th:action="@{/admin/asignar-turno}" th:method="post" th:object="${fechaTurno}">
+		<input type="hidden" th:field="*{dni}">
+		<input type="hidden" th:field="*{estadoTurno}">
+		<div class="col-xl-8 offset-2 formulariovacuna">
+			<h2 class="textlabelasignar">Dni</h2>
+			<p class="card-text"><small class="text-dark" th:text="${fechaTurno.dni}"></small></p>
+			<hr>
+			<h2 class="textlabelasignar">Nombres</h2>
+			<p class="card-text"><small class="text-dark" th:text="${fechaTurno.nombres}"></small></p>
+			<hr>
+			<h2 class="textlabelasignar">Apellidos</h2>
+			<p class="card-text"><small class="text-dark" th:text="${fechaTurno.apellidos}"></small></p>
+			<hr>
+			<h2 class="textlabelasignar">Estado del turno</h2>
+			<p class="text-warning">
+				<small class="text-success" th:text="${fechaTurno.estadoTurno}" th:class="${(#strings.contains(fechaTurno.estadoTurno,'ASIGNADO') ? 'text-success' : '') + 
+							              (#strings.contains(fechaTurno.estadoTurno,'BAJA') ? 'text-danger' : '') + 
+										  (#strings.contains(fechaTurno.estadoTurno,'PERDIDO') ? 'text-danger' : '') + 
+										  (#strings.contains(fechaTurno.estadoTurno,'PENDIENTE') ? 'text-warning' : '')}">
+				</small>
+			</p>
+			<hr>
+			   <label for="fechaturno" class="form-label textlabelasignar">Fecha de turno<span
+						class="text-danger">*</span></label>
+				<input type="date"
+					   class="form-control mb-2"
+					   id="fechaturno"
+					   onkeydown="return false"
+					   placeholder="Selecione la fecha"
+					   th:field="*{fecha}"
+					   required/>
+					   
+				  
+		     <div class="botoncontainer">
+			    <h6 class="text-danger labelobli">* Campos Obligatorios</h6>
+			    <div class="botonesinferiores">
+			       <button type="button" class="btn btn-outline-primary mb-4 mr-1 btngene" onclick="window.history.go(-1);"><i
+						class="fas fa-caret-square-left"></i> Volver</buttton>
+				   <button type="submit" class="btn btn-outline-success mb-4 btngene"><i class="fas fa-save"></i>
+					Guardar</button>
+			    </div>
+				
+			</div>
+
+		</div>
+	</form>
+</div>
+
+
+	<br>
+	<th:block th:replace="layout/layoutadmin :: js"></th:block>
+	
+</body>
+</html>

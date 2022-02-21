@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutlogin :: head"></head>
+<header th:replace="layout/layoutlogin :: header"></header>
+<body>
+    <div class="titelconsulcontainer">
+		<p class="text-black titlelogin">Bienvenido - Inicie Sesion</p>
+		<a class="btn btn-primary volverlogin" th:href="@{/}"><i class="fas fa-caret-square-left"></i> Volver</a>
+	</div><br>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                   <img src="static/img/pic.png" th:src="@{/img/usuario.svg}"/>
+                </div>
+      
+                <form class="col-12" th:action="@{/login}" method="post">
+                    <div class="form-group mb-3" id="user-group">
+                        <input type="text" class="form-control text-white" id="formGroupExampleInput" autocomplete="off" autofocus placeholder="Nombre de usuario" name="username"/>
+                    </div>
+                    <div class="form-group mb-1" id="contrasena-group">
+                        <input  type="password" class="form-control text-white" id="formGroupExampleInput2" autocomplete="off" placeholder="Contrasena" name="password"/>
+                        <div class="form-group-append">
+                           <button id="show_password" class="btn text-white" type="button" onclick="mostrarPassword()"><i class="fas fa-eye-slash icon"></i></button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i>  Iniciar </button>
+                </form><br>
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Nombre de usuario y/o contraseña inválidos.
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            Usted se ha desconectado.
+		        </div>
+            </div>
+        </div>
+    </div>
+	<br>
+	<th:block th:replace="layout/layout :: js"></th:block>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

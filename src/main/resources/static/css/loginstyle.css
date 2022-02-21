@@ -1,0 +1,96 @@
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+.text-primary{color: var(--primary) !important; }
+
+.btn-outline-primary{color: var(--primary) !important; border-color: var(--primary);}
+.btn-outline-primary:hover{color: var(--light) !important; border-color: var(--primary) ; background-color: var(--primary);}
+
+.bg-primary { background-color: var(--primary) !important; }
+
+.bg-light { background-color: var(--light) !important; }
+
+.bg-grey { background-color: var(--grey) !important; }
+
+.bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
+
+.main-section{
+    margin:0 auto;
+    padding: 0;
+}
+
+.modal-content{
+    background-color: rgba(17, 27, 84, 0.9);
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848484;
+}
+.btn-check:focus+.btn, .btn:focus{
+	box-shadow: none;
+}
+#contentmodal{
+	background-color: rgba(42, 38, 48, 0.4);
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848484;
+}
+
+.user-img{
+    margin-top: -50px;
+    margin-bottom: 35px;
+}
+
+.user-img img{
+    width: 100xp;
+    height: 100px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 50%;
+}
+
+.form-group input, .input-group input{
+    height: 42px;
+    font-size: 18px;
+    border:0;
+    padding-left: 54px;
+    border-radius: 5px;
+    background-color: rgba(42, 38, 48, 0.4);
+}
+
+.form-group::before, .input-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+    color: white;
+}
+
+.form-group#user-group::before{
+    content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+    content: "\f023";
+}
+
+#show_password{
+	height: 42px;
+    font-size: 18px;
+    margin-top: -70px;
+    margin-left: 242px;
+    border:0;
+    border-radius: 5px;
+}
+.forgot{
+    padding: 5px 0;
+}
+
+.forgot a{
+    color: white;
+}
+#formGroupExampleInput, #formGroupExampleInput2{
+	background-color: rgba(27, 27, 28, 0.3);
+	
+}
+#formGroupExampleInput::placeholder, #formGroupExampleInput2::placeholder{
+	color: rgba(255, 255, 255, 0.1);
+}

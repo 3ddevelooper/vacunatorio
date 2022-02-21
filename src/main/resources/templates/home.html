@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<!--INICIO SLIDER-->
+<div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+			aria-current="true" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+			aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+			aria-label="Slide 3"></button>
+	</div>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="/img/slider1.png" class="d-flex justify-content-center" alt="Imagen Programa Vacunacion Nacional">
+			<div class="carousel-caption d-none d-md-block">
+				<h5 class="titleslider">Programa Nacional de Vacunación</h5>
+				<p class="paraslider">Seguimos con el estricto plan de la nación para lograr vacunar a toda la población</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="/img/slider2.png" class="d-flex justify-content-center" alt="Imagen Vacuna Pfizer ">
+			<div class="carousel-caption d-none d-md-block">
+				<h5 class="titleslider">Pfizer: LLegan mas de millon de dosis</h5>
+				<p>Finalmente Pfizer acordó con el gobierno y en las proximas horas llegaría un cargamento de la vacuna.</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="/img/slider3.png" class="d-flex justify-content-center" alt="Imagen Vacunatorio Movil">
+			<div class="carousel-caption d-none d-md-block">
+				<h5 class="titleslider">Más centros movíles de vacunación</h5>
+				<p>El Gobierno dispuso en la últimas horas preparar más de 3.000 puestos movíles para la provincia.</p>
+			</div>
+		</div>
+	</div>
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+</div>
+<!--FIN SLIDER-->
+
+<!-- Modal Consulta-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-primary" id="exampleModalLabel">Consulte su turno</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form th:action="@{turno/consulta}" method="GET">
+				<div class="modal-body">
+					<div class="mb-3">
+						<label for="formGroupExampleInput" class="form-label text-primary">Ingrese su dni para
+							consultar el turno.</label>
+						<input type="text" class="form-control bg-primary text-white" id="formGroupExampleInput" th:name="dni"
+							onkeypress="return soloNumeros(event)" placeholder="Número de dni" required>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-outline-success">Consultar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--Fin Modal Consulta-->
+		
+<!-- Modal Perdió su turno-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-primary" id="exampleModalLabel2">¿Perdió su turno?</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form th:action="@{turno/notificar-perdida}" method="GET">
+				<div class="modal-body">
+					<div class="mb-3">
+
+						<label for="formGroupExampleInput2" class="form-label text-primary">Ingrese su dni para
+							notificar la pérdida.</label>
+						<p class="form-label text-danger luego">*Luego se le asignará un nuevo turno, debe consultarlo
+							con su DNI.</p>
+						<input type="text" class="form-control bg-primary text-white" id="formGroupExampleInput2" name="dni"
+							onkeypress="return soloNumeros(event)" placeholder="Número de dni" required>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-outline-success">Notificar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--Fin Modal Perdió su turno-->
+
+<!-- INICIO CARS-->
+<h1 class="text-center mt-2 animado">Turnos para vacunación</h1>
+<div class="p-4 container-fluid bg-white d-flex justify-content-center">
+	<div class="row">
+		<div class="col-12 col-md-3 mb-2 cardcontainer d-flex justify-content-center animado">
+			<div class="carta front text-center bg-success">
+			   <!--<h1>FRONT</h1>-->
+			   <i class="fas fa-calendar-check iconcard mt-5"></i>
+			   <p class="mt-5 textcard">Solicitar Turno</p>
+			</div>
+			<div class="carta back text-center bg-success">
+			   <p class="parracard">Aquí podrás solicitar un turno para vacunarte...HAZLO!!</p>
+			   <a th:href="@{turno/solicitud}" class="btncarta">SOLICITAR</a>
+			</div>
+		</div>
+		
+		<div class="col-12 col-md-3 mb-2 cardcontainer  d-flex justify-content-center animado">
+			<div class="carta front text-center bg-warning">
+			   <i class="fas fa-calendar-alt iconcard mt-5"></i>
+			   <p class="mt-5 textcard">Consulte su turno</p>
+			</div>
+			<div class="carta back text-center bg-warning">
+			   <p class="parracard mb-2">Aquí podrás consultar el estado de tu turno, y la fecha en el caso de tenerlo asignado.</p>
+			   <a type="button" class="btncarta" th:attr="data-bs-toggle='modal'" data-bs-target="#exampleModal">CONSULTAR</a>
+			</div>
+		</div>
+		
+		<div class="col-12 col-md-3 mb-2 cardcontainer  d-flex justify-content-center animado">
+			<div class="carta front text-center bg-danger">
+			   <i class="fas fa-calendar-times iconcard mt-5"></i>
+			   <p class="mt-5 textcard">¿Perdio su turno?</p>
+			</div>
+			<div class="carta back text-center bg-danger">
+			   <p class="parracard mb-2">Aquí podrás notificar la pérdida del turno para que luego te asignen uno nuevo.</p>
+			   <a type="button" class="btncarta" th:attr="data-bs-toggle='modal'" data-bs-target="#exampleModal2">NOTIFICAR</a>
+			</div>
+		</div>
+		
+		<div class="col-12 col-md-3 mb-2 cardcontainer  d-flex justify-content-center animado">
+			<div class="carta front text-center bg-info">
+			   <i class="fas fa-question-circle iconcard mt-5"></i>
+			   <p class="mt-5 textcard">Preguntas Frecuentes</p>
+			</div>
+			<div class="carta back text-center bg-info">
+			   <p class="parracard">Aquí encontrás las respuestas a muchas de tus preguntas.</p>
+			   <a th:href="@{/preguntas}" class="btncarta">VER MÁS</a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!--FIN CARDS-->
+
+<h1 class="text-center animado">Covid-19 en números</h1>
+<div  class="carousel slide mb-3" data-bs-ride="carousel">
+  <div class="carousel-inner">
+	<div class="carousel-item active">
+	 <div class="row d-flex justify-content-center bg-white fila animado">
+		<div class="card uno" style="width: 18rem;">
+			<div class="card-body text-center">
+			    <h1 class="card-title  mb-2 text-info">5,07 M</h1>
+				<h5 class="card-subtitle">Total</h5>
+				<p class="card-text">Personas contagiadas</p>
+				<a rel="nofollow noopener noreferrer" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19/sala-situacion" class="card-link text-decoration-none text-primary" target="_blank">Ver Más</a>
+			</div>
+		</div>
+		<div class="card dos" style="width: 18rem;">
+			<div class="card-body text-center">
+				<h1 class="card-title mb-2 text-success">4,72 M</h1>
+				<h5 class="card-subtitle">Total</h5>
+				<p class="card-text">Personas recuperadas</p>
+				<a rel="nofollow noopener noreferrer" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19/sala-situacion" class="card-link text-decoration-none text-primary" target="_blank">Ver Más</a>
+			</div>
+		</div>
+		<div class="card tres" style="width: 18rem;">
+			<div class="card-body text-center">
+				<h1 class="card-title mb-2 text-danger">108 k</h1>
+				<h5 class="card-subtitle">Total</h5>
+				<p class="card-text">Personas Fallecidas</p>
+				<a rel="nofollow noopener noreferrer" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19/sala-situacion" class="card-link text-decoration-none text-primary" target="_blank">Ver Más</a>
+			</div>
+		</div>
+		<div class="card cuatro" style="width: 18rem;">
+			<div class="card-body text-center">
+				<h1 class="card-title mb-2 text-muted">8 k</h1>
+				<h5 class="card-subtitle">Positivo Diario</h5>
+				<p class="card-text">Personas con covid</p>
+				<a rel="nofollow noopener noreferrer" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19/sala-situacion" class="card-link text-decoration-none text-primary" target="_blank">Ver Más</a>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+
+<th:block th:replace="layout/layout :: js"></th:block>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

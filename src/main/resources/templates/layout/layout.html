@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment = "head">
+
+    <!--Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <!--Fuente-->  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+   
+    <!--Css Proipio-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    <!--Icono y Titulo de la pagina-->
+    <link rel="icon"  href="/img/favicon.png">
+    <title th:text = "${title}"></title>
+</head>
+<th:block th:fragment="js">
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+ <script src="/js/alert.js"></script>
+ <script src="/js/limitinput.js"></script>
+ <script src="/js/animation.js"></script>
+  <script src="/js/visiblepass.js"></script>
+ 
+</th:block> 
+<body>
+<header th:fragment = "header" id="headercontainer">
+	<nav class="navbar navbar-light fixed-top">
+		<div class="container-fluid bg-primary">
+			<img class="logo" src="/img/logoba.png">
+			<div class="btncontent" >
+			  	<a class="btn btn-outline-light" th:href="@{/login}" sec:authorize="!isAuthenticated()">
+			  		<i class="fas fa-sign-in-alt"></i> Ingresar</a>
+				<form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+					<button class="btn btn-outline-light" type="submit">
+						<i class="fas fa-sign-out-alt"></i> Salir
+					</button>
+					<a class="btn btn-light" th:href="@{/admin}">
+						<i class="fas fa-sign-out-alt"></i> Volver
+					</a>
+				</form>
+			</div>
+			
+		</div>
+	</nav>
+</header>
+
+<footer th:fragment = "footer" class="text-center text-white bg-primary">
+	<!-- Grid container -->
+	<div class="container-fluid pt-2 d-flex justify-content-center">
+	    <img class="logofooter d-flex justify-content-start mt-2" src="/img/balogo.png">
+	    <div class="m-3 ">
+	    <h6 class="text-white teluti">Teléfonos Útiles</h6>
+	    <a class="text-white todostel" rel="nofollow noopener noreferrer" href="https://www.buenosaires.gob.ar/laciudad/telefonosutiles" target="_blank">Ver todos los teléfonos</a>
+	    </div>
+	    <div class="content m-2 d-none d-sm-block">
+	    <a class=" text-white tel" href="tel:102">102</a>
+	     <h6 class="text-muted textdeta">Niñez y Adolescencia</h6>
+	    </div>
+	     <div class="content m-2 d-none d-sm-block">
+	    <a class="text-white tel" href="tel:103">103</a>
+	     <h6 class="text-muted textdeta">Emergencias</h6>
+	    </div>
+	     <div class="content m-2 d-none d-sm-block">
+	    <a class="text-white tel" href="tel:107">107</a>
+	     <h6 class="text-muted textdeta">SAME</h6>
+	    </div>
+	     <div class="content m-2 d-none d-sm-block">
+	    <a class="text-white tel" href="tel:911">911</a>
+	     <h6 class="text-muted textdeta">Policia</h6>
+	    </div>
+	    <div class="content m-2 d-none d-sm-block">
+	    <a class="text-white tel" href="www.google.com.ar">147</a>
+	     <h6 class="text-muted textdeta">Atención ciudadana</h6>
+	    </div>
+	    <div class="content m-2 d-none d-sm-block">
+	    <a class="text-white tel" href="tel:911">144</a>
+	     <h6 class="text-muted textdeta">Violencia de género</h6>
+	    </div>
+	</div>
+	<div class="container-fluid pt-2 d-flex justify-content-center flex-wrap">
+	<!-- Section: Social media --> 	
+		<section class="mb-2">
+			<!-- Facebook -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-facebook-f icons"></i></a>
+
+			<!-- Twitter -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-twitter icons"></i></a>
+
+			<!-- Google -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-google icons"></i></a>
+
+			<!-- Instagram -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-instagram icons"></i></a>
+
+			<!-- Linkedin -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-linkedin icons"></i></a>
+			<!-- Github -->
+			<a class="btn btn-link btn-floating btn-lg text-white m-1 p-1" href="#!" role="button"
+				data-mdb-ripple-color="dark"><i class="fab fa-github icons"></i></a>
+		</section>
+		<!-- Section: Social media -->
+	</div>
+	<!-- Grid container -->
+
+	<!-- Copyright -->
+	<div class="container-fluid text-center text-white p-3">
+		© <script>document.write(new Date().getFullYear()+" ")</script>Alejandro Fernández - 
+		<a class="copidami font-weight-bold" rel="nofollow noopener noreferrer" href="https://damiandries.com.ar/" target="_blank">Damián
+			Dries</a>
+		| Todos los derechos reservados.
+	</div>
+	<!-- Copyright -->
+</footer>
+		
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<br>
+<div class="container mt-4">
+	<div class="titelconsulcontainer">
+		<h2 class="text-black display-4 titleresultado">Resultados Obtenidos</h2>
+		<a class="btn btn-primary volver" th:href="@{/}"><i class="fas fa-caret-square-left"></i> Volver</a>
+	</div>
+
+	<div th:if="${msj}"
+		 class="alert mt-3 alert-danger text-center"
+		 role="alert"
+		 th:text ="${msj}">
+	</div>
+
+	<!--<div class="cards" th:if="${msj == null}">
+		<div class="card-body">
+			<h2 class="textlabel text-dark">Dni</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.dni}"></small></p><hr>
+			<h2 class="textlabel text-dark">Nombres</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.nombres}"></small></p><hr>
+			<h2 class="textlabel text-dark">Apellidos</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.apellidos}"></small></p><hr>
+			<h2 class="textlabel text-dark">Teléfono</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.telefono}"></small></p><hr>
+			<h2 class="textlabel text-dark">Email</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.email}"></small></p><hr>
+			<h2 class="textlabel text-dark">Dirección</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.direccion}"></small></p><hr>
+			<h2 class="textlabel text-dark">Vacuna</h2>
+			<p class="card-text"><small class="text-muted"  th:text="${turno.vacuna.nombre}"></small></p><hr>
+			<h2 class="textlabel text-dark">Fecha vacunación</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.fechaTurno} ?: 'NO HAY FECHA'"></small></p><hr>
+			<h2 class="textlabel text-dark">Estado del turno</h2>
+			<p class="card-text"><small class="text-muted" th:text="${turno.estadoTurno}"></small></p>
+			<div class="text-center mt-3">
+				<a  class="btn btn-outline-warning btn-lg mb-2" th:href="@{/turno/editar(dni=${turno.dni})}"><i
+						class="fas fa-pen-square"></i>
+					Editar Datos</a>
+				<a type="button" class="btn btn-outline-danger btn-lg mb-2" th:href="@{/turno/baja(dni=${turno.dni})}"><i
+						class="fas fa-trash"></i>Dar de Baja el Turno</a>	
+			</div>
+		</div>
+	</div>-->
+	
+	<div class="cards" th:if="${msj == null}">
+	   <div class="card-body">
+	      <div class="d-flex justify-content-center consulcontainer">
+	        <h3 class="text-dark consultite">Nombres</h3> 
+			<h3 class="text-dark consultite">Apellidos</h3>
+			<h3 class="text-dark consultite">Dni</h3>
+	      </div>
+	      <hr>
+	      <div class="d-flex justify-content-center datosconsulcontainer">
+	         <p class="card-text datosconsul text-muted" th:text="${turno.nombres}"></p>
+	         <p class="card-text datosconsul text-muted" th:text="${turno.apellidos}"></p>
+	         <p class="card-text datosconsul text-muted" th:text="${turno.dni}"></p>
+	      </div>
+	      <hr>
+	      <div class="d-flex justify-content-center consulcontainerdos">
+	        <h6 class="text-dark consultitedos">Estado del turno</h6>
+	        <h6 class="text-dark consultitedos">Fecha vacunación</h6> 
+			<h6 class="text-dark consultitedos">Vacuna</h6>
+	      </div>
+	     
+	      <div class="d-flex justify-content-center datosconsulcontainerdos">
+	         <p class="text-warning datosconsuldos"><small class="text-success"  th:text="${turno.estadoTurno}" 
+											   th:class="${(#strings.contains(turno.estadoTurno,'ASIGNADO') ? 'text-success' : '') + 
+											   (#strings.contains(turno.estadoTurno,'BAJA') ? 'text-danger' : '') + 
+											   (#strings.contains(turno.estadoTurno,'PERDIDO') ? 'text-danger' : '') + 
+											   (#strings.contains(turno.estadoTurno,'PENDIENTE') ? 'text-warning' : '')}"></small>
+											</p>
+	         <p class="card-text text-muted datosconsuldos" th:text="${turno.fechaTurno} ?: 'NO HAY FECHA'"></p>
+	         <p class="card-text text-muted datosconsuldos"  th:text="${turno.vacuna.nombre}"></p>
+	      </div>
+	      <hr>
+	      <div class="d-flex justify-content-center consulcontainertres">
+	        <h6 class="text-dark consultitetres">Teléfono</h6>
+			<h6 class="text-dark consultitetres">Email</h6>
+			<h6 class="text-dark consultitetres">Dirección</h6>
+	      </div>
+	      
+	      <div class="d-flex justify-content-center datosconsulcontainertres">
+	         <p class="card-text text-muted datosconsultres" th:text="${turno.telefono}"></p>
+	         <p class="card-text text-muted datosconsultres" th:text="${turno.email}"></p>
+	         <p class="card-text text-muted datosconsultres" th:text="${turno.direccion}"></p>
+	      </div>
+	      <hr>
+	      <div class="botonescontainer mt-3">
+				<a  class="btn btn-outline-warning  mb-2 me-2" th:href="@{/turno/editar(dni=${turno.dni})}"><i
+						class="fas fa-pen-square"></i>
+					Editar Datos</a>
+				<a type="button" class="btn btn-outline-danger  mb-2" th:onclick="eliminar([[${turno.dni}]])"><i
+						class="fas fa-trash"></i>Dar de Baja el Turno</a>			
+			</div>
+	   </div>
+	</div>
+</div>
+<br>
+    <th:block th:replace="layout/layout :: js"></th:block>
+	<footer th:replace="layout/layout :: footer"></footer>            
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutadmin :: head"></head>
+<body>
+<header th:replace="layout/layoutadmin :: header"></header>
+<br>
+<div class="fragmentcontainer">
+    <div class="alert text-center alertmsg"
+         th:classappend="${condicion} == 1 ? 'alert-success' : 'alert-danger'"
+         role="alert"
+         th:if ="${resp}"
+         th:text ="${resp}">
+    </div>
+    <div class="text-center btnmsg">
+        <a class="btn btn-outline-primary mb-2" th:href="@{/admin/turnos}"><i class="fas fa-caret-square-left"></i> Volver</a>
+    </div>
+</div>
+<br>
+<th:block th:replace="layout/layoutadmin :: js"></th:block>
+</body>
+</html>

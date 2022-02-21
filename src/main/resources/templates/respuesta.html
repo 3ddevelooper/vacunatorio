@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<div class="container">
+    <div class="alert text-center"
+         th:classappend="${condicion} == 1 ? 'alert-success' : 'alert-danger'"
+         role="alert"
+         th:if ="${resp}"
+         th:text ="${resp}"></div>
+    <div class="text-center mt-3 mb-3">
+        <a class="btn btn-outline-primary btn mb-2" th:href="@{/}"><i class="fas fa-caret-square-left"></i> Volver</a>
+    </div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

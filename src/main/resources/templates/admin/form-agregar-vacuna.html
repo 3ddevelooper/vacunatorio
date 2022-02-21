@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layoutadmin :: head"></head>
+<header th:replace="layout/layoutadmin :: header"></header>
+<body>
+
+<div class="fragmentcontainer">
+	<form th:action="@{/admin/guardar-vacuna}" method="post" class="col-xl-8 offset-2 formulariovacuna" th:object="${vacuna}">
+			<div class="mb-1">
+				<label for="formGroupExampleInput" class="form-label text-dark">Nombre de la vacuna<span
+						class="text-danger">*</span></label>
+				<input type="text" 
+				       class="form-control bg-primary text-white" 
+				       onkeypress="return soloLetras(event)"
+				       id="formGroupExampleInput" name="nombre"
+					   placeholder="Nombre de la vacuna"
+					   th:field="*{nombre}"
+					   required>
+				<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors = "*{nombre}"></small>
+			</div>
+			<div class="mb-1">
+				<label for="formGroupExampleInput2" class="form-label text-dark">Descripción</label>
+				<input type="text"
+					   class="form-control bg-primary text-white"
+					   id="formGroupExampleInput2"
+					   name="descripcion"
+					   placeholder="Descripción"
+					   th:field="*{descripcion}">
+			</div>
+			<div class="mb-1">
+				<label for="formGroupExampleInput3" class="form-label text-dark" required>Número de dosis <span class="text-danger">*</span></label>
+				<input type="text"
+					   class="form-control bg-primary text-white"
+					   onkeypress="return soloNumeros(event)"
+					   id="formGroupExampleInput3"
+					   name="dosis"
+					   placeholder="Número de dosis"
+					   th:field="*{numeroDosis}"
+					   required>
+				<small class="form-text text-danger" th:if="${#fields.hasErrors('numeroDosis')}" th:errors = "*{numeroDosis}"></small>
+			</div>
+			<div class="mb-1">
+				<label for="formGroupExampleInput4" class="form-label text-dark" required>Días entre dosis <span class="text-danger">*</span></label>
+				<input type="text"
+					   class="form-control bg-primary text-white"
+					   onkeypress="return soloNumeros(event)"
+					   id="formGroupExampleInput4"
+					   name="dias"
+					   placeholder="Días entre dosis"
+					   th:field="*{diaEntreDosis}"
+					   required>
+				<small class="form-text text-danger" th:if="${#fields.hasErrors('diaEntreDosis')}" th:errors = "*{diaEntreDosis}"></small>
+			</div>
+			<div class="botoncontainer">
+			    <h6 class="text-danger labelobli">* Campos Obligatorios</h6>
+			    <div class="botonesinferiores">
+			       <a class="btn btn-outline-primary mb-4 mr-1 btngene" th:href="@{/admin/vacunas}"><i
+						class="fas fa-caret-square-left"></i> Volver</a>
+				   <button type="submit" class="btn btn-outline-success mb-4 btngene"><i class="fas fa-save"></i>
+					Guardar</button>
+			    </div>
+				
+			</div>
+		</form>
+</div>
+
+
+	<br>
+	<th:block th:replace="layout/layoutadmin :: js"></th:block>
+	
+</body>
+</html>

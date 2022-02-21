@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<br>
+<br>
+<div class="container">
+	<div class="text-center">
+		<h2 class="text-black display-4">Registro de Solicitud de Turno</h2>
+	</div>
+
+	<form th:action="@{/turno/guardar-turno}" method="post" class="col-10 col-sm-8 offset-2 formsolicitud" th:object="${turno}">
+		   <div class="mb-3">
+			    <label for="formGroupExampleInput" class="form-label text-black">Número de DNI <span
+					class="text-danger">*</span></label>
+			    <input type="text" th:field="*{dni}" class="form-control bg-primary text-white"
+				  onkeypress="return soloNumeros(event)" id="formGroupExampleInput" name="dni" placeholder="Número de dni"
+				  required>
+			     <small class="form-text text-danger" th:if="${#fields.hasErrors('dni')}" th:errors = "*{dni}"></small>
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput2" class="form-label text-black" required>Nombres <span class="text-danger">*</span></label>
+				<input type="text"
+					   th:field="*{nombres}"
+					   class="form-control bg-primary text-white"
+					   onkeypress="return soloLetras(event)"
+					   id="formGroupExampleInput2"
+					   name="nombres"
+					   placeholder="Ingrese su nombre"
+					   required>
+				<small class="form-text text-danger" th:if = "${#fields.hasErrors('nombres')}" th:errors = "*{nombres}"></small>
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput3" class="form-label text-black" required>Apellidos <span class="text-danger">*</span></label>
+				<input type="text"
+					   th:field="*{apellidos}"
+					   class="form-control bg-primary text-white"
+					   onkeypress="return soloLetras(event)"
+					   id="formGroupExampleInput3"
+					   name="apellidos"
+					   placeholder="Ingrese su apellido"
+					   required>
+				<small class="form-text text-danger" th:if = "${#fields.hasErrors('apellidos')}" th:errors = "*{apellidos}"></small>
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput4" class="form-label text-black" required>Teléfono <span class="text-danger">*</span></label>
+				<input type="text"
+					   th:field="*{telefono}"
+					   class="form-control bg-primary text-white"
+					   onkeypress="return soloNumeros(event)"
+					   id="formGroupExampleInput4"
+					   name="telefono"
+					   placeholder="Número de teléfono"
+					   required>
+				<small class="form-text text-danger" th:if = "${#fields.hasErrors('telefono')}" th:errors = "*{telefono}"></small>
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput5" class="form-label text-black" required>E-mail</label>
+				<input type="email"
+					   th:field="*{email}"
+					   class="form-control bg-primary text-white"
+					   id="formGroupExampleInput5"
+					   name="email"
+					   placeholder="Dirección de email">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput6" class="form-label text-black" required>Dirección</label>
+				<input type="text"
+					   th:field="*{direccion}"
+					   class="form-control bg-primary text-white"
+					   id="formGroupExampleInput6"
+					   name="direccion"
+					   placeholder="Dirección de residencia">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput7" class="form-label text-black" required>Seleccionar Vacuna<span class="text-danger">*</span></label>
+				<select class="form-select bg-primary text-white"
+						aria-label="Default select example"
+						id="formGroupExampleInput7"
+						name="vacuna"
+						th:field="*{vacuna}">
+					<option th:each="vacuna:${vacunas}"
+							th:value="${vacuna.id}"
+							th:text="${vacuna.nombre}"
+					/>
+				</select>
+			</div>
+			<div class="text-center ">
+			    <h6 class="text-danger">* Campos Obligatorios</h6>
+				<a class="btn btn-outline-primary mb-4 btngene" th:href="@{/}"><i
+						class="fas fa-caret-square-left"></i> Volver</a>
+				<button type="submit" class="btn btn-outline-success mb-4 btngene"><i class="fas fa-save"></i>
+					Guardar</button>
+			</div>
+		</form>
+</div>
+<th:block th:replace="layout/layout :: js"></th:block>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
