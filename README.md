@@ -1,4 +1,4 @@
-# vacunatorio
+# Vacunatorio
 
 <div aling="center">
 <h3>Pagina web - CRUD</h3>
@@ -8,16 +8,16 @@ Pagina simil turnero, en donde los usuarios solicitan un turno y un administrado
 
 <h1>Tencologías usudas</h1>
 -Java<br>
--Spring Boot
--Thymeleaf
--JPA/Hibernate
--Spring Security
--MySQL
--HTML5
--CSS3
--JavaScript
--Bootstrap
-
+-Spring Boot<br>
+-Thymeleaf<br>
+-JPA/Hibernate<br>
+-Spring Security<br>
+-MySQL<br>
+-HTML5<br>
+-CSS3<br>
+-JavaScript<br>
+-Bootstrap<br>
+<hr>
 ---Datos de acceso---
 User: admin
 Pass: admin@1234
